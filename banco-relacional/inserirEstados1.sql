@@ -1,5 +1,5 @@
 insert into estados (nome, sigla, regiao, populacao)
-values ('Acre', 'AC', 'Norte', 0.83);
+values ('Rio de Janeiro', 'RJ', 'Norte', 0.93);
 
 insert into estados 
     (nome, sigla, regiao, populacao)
