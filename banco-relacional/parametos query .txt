@@ -1,0 +1,86 @@
+Elementos que você pode utilizar ao criar uma query SQL 
+A SQL (Structured Query Language) oferece uma ampla gama de funcionalidades para 
+recuperar, inserir, atualizar e excluir dados. 
+
+Vamos explorar os principais elementos que você pode usar:
+
+1. **SELECT**: A cláusula `SELECT` é usada para especificar as colunas que você deseja recuperar da tabela. 
+Você pode selecionar todas as colunas usando um asterisco (`*`) ou listar as colunas desejadas separadas por vírgulas.
+ Exemplo:
+
+   ```sql
+   SELECT nome, idade FROM clientes;
+   ```
+
+2. **FROM**: A cláusula `FROM` indica de qual tabela ou tabelas você deseja recuperar os dados. 
+Você pode especificar múltiplas tabelas se estiver realizando uma junção de tabelas. 
+Exemplo:
+
+   ```sql
+   SELECT nome, produto FROM vendas
+   INNER JOIN clientes ON vendas.cliente_id = clientes.id;
+   ```
+
+3. **WHERE**: A cláusula `WHERE` permite filtrar os resultados com base em condições específicas. 
+Você pode usar operadores como igual (`=`), maior que (`>`), menor que (`<`), entre outros, para criar suas condições. 
+Exemplo:
+
+   ```sql
+   SELECT nome, idade FROM clientes WHERE cidade = 'São Paulo';
+   ```
+
+4. **ORDER BY**: A cláusula `ORDER BY` é usada para ordenar os resultados com base em uma ou mais colunas. 
+Você pode especificar a ordem como ascendente (`ASC`) ou descendente (`DESC`). Exemplo:
+
+   ```sql
+   SELECT nome, idade FROM clientes ORDER BY idade DESC;
+   ```
+
+5. **GROUP BY**: A cláusula `GROUP BY` é usada para agrupar os resultados com base em uma ou mais colunas.
+É frequentemente usada em conjunto com funções de agregação, como `SUM`, `COUNT`, `AVG`, etc. 
+Exemplo:
+
+   ```sql
+   SELECT cidade, COUNT(*) as total_clientes FROM clientes GROUP BY cidade;
+   ```
+
+6. **HAVING**: A cláusula `HAVING` é usada para filtrar grupos criados pela cláusula `GROUP BY` com base em 
+condições agregadas. Exemplo:
+
+   ```sql
+   SELECT cidade, COUNT(*) as total_clientes FROM clientes GROUP BY cidade HAVING COUNT(*) > 5;
+   ```
+
+7. **INSERT INTO**: A cláusula `INSERT INTO` é usada para inserir novos registros em uma tabela. 
+Você fornece os valores para as colunas correspondentes. Exemplo:
+
+   ```sql
+   INSERT INTO produtos (nome, preço) VALUES ('Camiseta', 20.99);
+   ```
+
+8. **UPDATE**: A cláusula `UPDATE` é usada para modificar registros existentes em uma tabela. 
+Você especifica quais colunas deseja atualizar e os novos valores. Exemplo:
+
+   ```sql
+   UPDATE produtos SET preço = 25.99 WHERE id = 1;
+   ```
+
+9. **DELETE FROM**: A cláusula `DELETE FROM` é usada para excluir registros de uma tabela com base em condições.
+ Exemplo:
+
+   ```sql
+   DELETE FROM clientes WHERE idade < 18;
+   ```
+
+10. **JOIN**: A cláusula `JOIN` é usada para combinar registros de duas ou mais tabelas com base em uma coluna relacionada.
+Existem vários tipos de joins, incluindo INNER JOIN, LEFT JOIN, RIGHT JOIN e FULL OUTER JOIN. Exemplo:
+
+    ```sql
+    SELECT nome, pedido FROM clientes
+    INNER JOIN pedidos ON clientes.id = pedidos.cliente_id;
+    ```
+
+Esses são alguns dos principais elementos que você pode usar ao criar queries SQL para interagir com um banco de dados
+relacional.
+ A SQL é uma linguagem poderosa que oferece flexibilidade na recuperação e manipulação de dados, permitindo que 
+ você realize uma ampla variedade de operações em bancos de dados.
